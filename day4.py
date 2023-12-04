@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Card:
     id: int
@@ -25,15 +26,16 @@ def parse_card(line: str) -> Card:
     owned = [int(x) for x in owned_nrs.split()]
     return Card(card_id, winning, owned)
 
+
 def find_end_cards(cards: list[Card]) -> int:
-    """Go through cards. """
+    """Go through cards."""
     card_dict = {card.id: card for card in cards}
     card_count = {card.id: 1 for card in cards}
     # card_count = [(1, card) for card in cards]
     for idx, card in enumerate(cards, start=1):
         score = card.owned_winning_cnt()
         multiplier = card_count[idx]
-        for n in range(1, score+1):
+        for n in range(1, score + 1):
             card_count[idx + n] += multiplier
 
     return sum(card_count.values())
@@ -47,6 +49,7 @@ def main():
     print(answer4a)
 
     print(find_end_cards(cards))
+
 
 if __name__ == "__main__":
     main()
