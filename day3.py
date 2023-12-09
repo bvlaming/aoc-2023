@@ -70,12 +70,5 @@ def main():
             if neighbour:
                 score = score * 10 + neighbour[0].value
 
-
-
-
-
-
-
-
 if __name__ == "__main__":
     main()
