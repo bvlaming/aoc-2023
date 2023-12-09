@@ -13,13 +13,6 @@ def forecast(history: list[int], acc: int) -> int:
     return forecast(next_hist, acc + history[-1])
 
 
-def compute_sum(transformer):
-    return sum(
-        transformer([int(n) for n in line.split()])
-        for line in open("input.txt").read().splitlines()
-    )
-
-
 def main():
     with open("data/day9.csv", "r") as file:
         data = file.read().splitlines()
