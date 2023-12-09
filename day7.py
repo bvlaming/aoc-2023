@@ -12,22 +12,15 @@ class Hand(Enum):
     FIVE = "7five"
 
 
-def score(
-    hand: Hand,
-    card1: int,
-    card2: int = 0,
-    card3: int = 0,
-    card4: int = 0,
-    card5: int = 0,
-) -> int:
+def score(hand: Hand, cards: list[int]) -> int:
     score_hand = int(hand.value[0])
     return (
         score_hand * 10000000
-        + card1 * 20 * 20 * 20 * 20
-        + card2 * 20 * 20 * 20
-        + card3 * 20 * 20
-        + card4 * 20
-        + card5
+        + cards[0] * 20 * 20 * 20 * 20
+        + cards[1] * 20 * 20 * 20
+        + cards[2] * 20 * 20
+        + cards[3] * 20
+        + cards[4]
     )
 
 
@@ -72,8 +65,7 @@ def score_cards(cards_str: str, uses_joker: bool = False) -> int:
         hand = find_hand(cards_with_joker)
     else:
         hand = find_hand(cards)
-    card1, card2, card3, card4, card5 = cards[0], cards[1], cards[2], cards[3], cards[4]
-    return score(hand, card1, card2, card3, card4, card5)
+    return score(hand, cards)
 
 
 def parse_data(data: list[str], uses_joker: bool) -> [list[tuple[int, int]]]:
