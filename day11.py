@@ -60,10 +60,11 @@ def main():
 
     answer_a = cumul_distances(galaxies)
     print(answer_a)
+    galaxies_b = parse_grid(data)
 
-    galaxies_b = expand_universe(galaxies, factor=1000000)
+    galaxies_b = expand_universe(galaxies_b, factor=1000000)
 
-    answer_b = cumul_distances(galaxies)
+    answer_b = cumul_distances(galaxies_b)
     print(answer_b)
 
 
