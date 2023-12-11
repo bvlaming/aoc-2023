@@ -56,10 +56,15 @@ def main():
 
     galaxies = parse_grid(data)
     print(list(galaxies))
-    galaxies = expand_universe(galaxies, factor=1000000)
+    galaxies = expand_universe(galaxies, factor=1)
 
     answer_a = cumul_distances(galaxies)
     print(answer_a)
+
+    galaxies_b = expand_universe(galaxies, factor=1000000)
+
+    answer_b = cumul_distances(galaxies)
+    print(answer_b)
 
 
 if __name__ == "__main__":
